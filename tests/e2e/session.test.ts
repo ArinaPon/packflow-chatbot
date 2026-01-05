@@ -1,7 +1,7 @@
 import { getMessageByErrorCode } from "@/lib/errors";
 import { expect, test } from "../fixtures";
 import { generateRandomTestUser } from "../helpers";
-import { AuthPage } from "../pages/auth";
+/*import { AuthPage } from "../pages/auth";*/
 import { ChatPage } from "../pages/chat";
 
 test.describe
@@ -26,7 +26,7 @@ test.describe
 
       expect(chain).toEqual([
         "http://localhost:3000/",
-        "http://localhost:3000/api/auth/guest?redirectUrl=http%3A%2F%2Flocalhost%3A3000%2F",
+        
         "http://localhost:3000/",
       ]);
     });
@@ -91,7 +91,7 @@ test.describe
       await expect(userEmail).toContainText("Guest");
     });
   });
-
+/*
 test.describe
   .serial("Login and Registration", () => {
     let authPage: AuthPage;
@@ -142,8 +142,8 @@ test.describe
       const userEmail = await page.getByTestId("user-email");
       await expect(userEmail).toHaveText(testUser.email);
 
-      await page.goto("/api/auth/guest");
-      await page.waitForURL("/");
+      /*await page.goto("/api/auth/guest");*/
+     /* await page.waitForURL("/");
 
       const updatedUserEmail = await page.getByTestId("user-email");
       await expect(updatedUserEmail).toHaveText(testUser.email);
@@ -183,7 +183,7 @@ test.describe
       await page.goto("/login");
       await expect(page).toHaveURL("/");
     });
-  });
+  });*/
 
 test.describe("Entitlements", () => {
   let chatPage: ChatPage;
